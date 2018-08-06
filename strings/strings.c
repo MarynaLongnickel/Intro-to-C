@@ -7,8 +7,15 @@
     
     Do not just use the `strlen` function from the standard libary.
 */
+
 int string_length(char s[])
 {
+    int i = 0;
+    while(s[i]!='\0')
+    {
+        i++;
+    }
+    return i;
 
 }
 
@@ -18,12 +25,21 @@ int string_length(char s[])
     enough space for the reversed string. Don't forget to terminate 
     the reversed string with a null character. Return the rv array.
 */
+
 char *reverse_string(char rv[], char s[])
 {
-
+    int i;
+    int l = string_length(s);
+    
+    for(i = 1; i <= l; i++)
+    {
+        rv[i] = s[l-i];
+    }
+    return rv;
 }
 
-#ifndef TESTING
+// #ifndef TESTING
+
 int main(void)
 {
     char quote1[] = "Don't forget to be awesome";
