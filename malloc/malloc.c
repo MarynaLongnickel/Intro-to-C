@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #include "lib.h"
 
+int string_length(char s[])
+{
+    int i = 0;
+    while(s[i]!='\0')
+    {
+        i++;
+    }
+    return i;
+}
 /*
     Duplicates the input string by dynamically allocating memory for 
     the duplicate string using `malloc` and then copying the string
@@ -13,7 +22,16 @@
 */
 char *string_dup(char *src)
 {
+    size_t l;
+    l = string_length(src);
+    char *duplicate = malloc(l);
 
+    int i;
+    for(i = 0; i < l; i++)
+    {
+        duplicate[i] = src[i];
+    }
+    return duplicate;
 }
 
 /*
@@ -25,8 +43,14 @@ char *string_dup(char *src)
     Do not just use the `memcpy` function from the standard library.
 */
 void *mem_copy(void *dest, const void *src, int n)
-{
-
+{   
+    unsigned char  *cur_a = (unsigned char *) dest;
+    unsigned char  *cur_b = (unsigned char *) src;
+    int i;
+    for(i = 0; i < n; i++)
+    {
+        cur_a[i] = cur_b[i];
+    }
 }
 
 #ifndef TESTING
@@ -53,4 +77,5 @@ int main(void)
 
     return 0;
 }
+
 #endif
