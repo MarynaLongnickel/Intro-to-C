@@ -26,19 +26,32 @@ int string_length(char s[])
     the reversed string with a null character. Return the rv array.
 */
 
+
 char *reverse_string(char rv[], char s[])
+
 {
+
     int i;
+
     int l = string_length(s);
+
     
-    for(i = 1; i <= l; i++)
+for(i = 1; i <= l; i++)
+
     {
-        rv[i] = s[l-i];
+
+        rv[i-1] = s[l-i];
+
     }
+
+    rv[l] = '\0';
+
     return rv;
+
 }
 
-// #ifndef TESTING
+
+#ifndef TESTING
 
 int main(void)
 {

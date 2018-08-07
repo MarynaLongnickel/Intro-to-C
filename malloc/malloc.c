@@ -2,15 +2,7 @@
 #include <stdlib.h>
 #include "lib.h"
 
-int string_length(char s[])
-{
-    int i = 0;
-    while(s[i]!='\0')
-    {
-        i++;
-    }
-    return i;
-}
+
 /*
     Duplicates the input string by dynamically allocating memory for 
     the duplicate string using `malloc` and then copying the string
@@ -22,15 +14,16 @@ int string_length(char s[])
 */
 char *string_dup(char *src)
 {
-    size_t l;
+    int l;
     l = string_length(src);
-    char *duplicate = malloc(l);
+    char *duplicate = malloc(l + 1);
 
     int i;
     for(i = 0; i < l; i++)
     {
-        duplicate[i] = src[i];
+        *(duplicate + i) = *(src + i);
     }
+    *(duplicate + l) = '\0';
     return duplicate;
 }
 

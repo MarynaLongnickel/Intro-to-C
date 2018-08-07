@@ -8,7 +8,9 @@
 */
 void swap(int* a, int* b)
 {
-
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 /*
@@ -18,9 +20,16 @@ void swap(int* a, int* b)
     
     Do not just use the `strlen` function from the standard library.
 */
+
 int string_length(char *s)
 {
-
+    int c = 0;
+    while(*s != '\0')
+    {
+        c++;
+        s++;
+    }   
+    return c;
 }
 
 /*
@@ -31,9 +40,16 @@ int string_length(char *s)
     
     Do not just use the `strcpy` function from the standard library.
 */
+
 void string_copy(char *x, char *y)
 {
-
+    while (*y != '\0')
+    {
+        *x = *y;
+        x++;
+        y++;
+    }
+    *x = '\0';
 }
 
 /* 
@@ -52,7 +68,16 @@ void string_copy(char *x, char *y)
 */
 int string_compare(char *m, char *n)
 {
-
+    while(*m == *n)
+    {
+        if(*m == '\0' || *n == '\0')
+        {
+            return 0;
+        }
+        m++;
+        n++;
+    }
+    return *m - *n;
 }
 
 #ifndef TESTING
